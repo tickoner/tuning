@@ -1,0 +1,75 @@
+.btn-primary {
+    margin: 7px;
+    display: inline-block;
+    box-sizing: border-box;
+    font: 14px 'OpenSans-Regular', Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 20px 37px;
+    border-radius: 6px;
+    background-color: #e85e5e;
+    &:hover {
+        text-decoration: none;
+        background-color: darken(#e85e5e, 10%);
+    }
+
+    &:active {
+        text-decoration: none;
+        background-color: #e85e5e;
+    }
+
+    &:active:focus,
+    &:active:hover,
+    &:visited:focus {
+        background-color: darken(#e85e5e, 10%);
+        text-decoration: none;
+    }
+
+    &:focus {
+        text-decoration: none;
+        background-color: #e85e5e;
+    }
+}
+
+/* Ripple Out */
+@-webkit-keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+@keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+.hvr-ripple-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+}
+.hvr-ripple-out:before {
+  content: '';
+  position: absolute;
+  border: #e85e5e solid 6px;
+  border-radius: 6px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.hvr-ripple-out:hover:before, .hvr-ripple-out:focus:before, .hvr-ripple-out:active:before {
+  -webkit-animation-name: hvr-ripple-out;
+  animation-name: hvr-ripple-out;
+}
