@@ -48,7 +48,8 @@ gulp.task('vendor-css', function() {
 //copy vendor javascripts
 gulp.task('vendor-js', function() {
   return gulp.src([
-    'src/vendor/bootstrap/dist/js/bootstrap.js'
+    'src/vendor/bootstrap/dist/js/bootstrap.js',
+    'src/vendor/parallax/deploy/jquery.parallax.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())

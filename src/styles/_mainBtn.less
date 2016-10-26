@@ -1,3 +1,5 @@
+
+
 .btn-primary {
     margin: 7px;
     display: inline-block;
@@ -12,7 +14,7 @@
         background-color: darken(#e85e5e, 10%);
     }
 
-    &:active {
+    &:active,&:focus {
         text-decoration: none;
         background-color: #e85e5e;
     }
@@ -23,10 +25,9 @@
         background-color: darken(#e85e5e, 10%);
         text-decoration: none;
     }
-
-    &:focus {
-        text-decoration: none;
-        background-color: #e85e5e;
+    
+    &, &:visited, &:focus, &:active, &:hover{
+        outline:0 none !important;
     }
 }
 
