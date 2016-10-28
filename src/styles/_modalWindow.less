@@ -1,0 +1,61 @@
+.modal-dialog {
+    width: 100%;
+    max-width: 770px;
+
+    color: black;
+
+    .modal-content {
+        border-radius: 0;
+        padding: 15px;
+
+        font: 14px 'OpenSans-Regular',Arial, sans-serif;
+
+        input,
+        textarea {
+            border-radius: 0;
+        }
+
+        .modal {
+            &-body,
+            &-footer,
+            &-header {
+                border: 0;
+            }
+
+            &-body {
+                #marks,
+                #models,
+                #vinCode {
+                    max-width: 340px;
+                }
+
+                #vinCode {
+                    text-transform: uppercase;
+                }
+            }
+
+            label {
+                font-weight: bold;
+            }
+        }
+
+        &-footer {
+            text-align: left;
+
+            a {
+                display: inline-block;
+            }
+
+            button {
+                float: right;
+            }
+        }
+    }
+}
+
+h4.modal-title {
+    text-align: center;
+
+    font: 24px 'OpenSans-Regular',Arial, sans-serif;
+    font-weight: bold;
+}

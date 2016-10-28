@@ -1,5 +1,6 @@
 @import url(_fonts);
 @import url(_mainBtn);
+@import url(_modalWindow);
 
 body,
 html {
@@ -9,19 +10,19 @@ html {
 }
 
 body {
+    /* Pick a solid background color that will be displayed while the background image is loading */
+    background-color: #464646;
     /* Location of the image */
     background-image: url("/img/bg.png");
-    /* Image is centered vertically and horizontally at all times */
-    background-position: center center;
     /* Image doesn't repeat */
     background-repeat: no-repeat;
     /* Makes the image fixed in the viewport so that it doesn't move when
      the content height is greater than the image height */
     background-attachment: fixed;
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
     /* This is what makes the background image rescale based on its container's size */
     background-size: cover;
-    /* Pick a solid background color that will be displayed while the background image is loading */
-    background-color: #464646;
 }
 /* For mobile devices */
 @media only screen and (max-width: 767px) {
@@ -43,47 +44,54 @@ body {
 #wrapper {
     position: relative;
     z-index: 2;
-    min-height: 100%;
+
     height: auto !important;
     height: 100%;
+    min-height: 100%;
     margin-bottom: -55px;
 
     &:before {
-        background-color: black;
-        opacity: 0.85;
-        width: 100%;
-        height: 100%;
         position: fixed;
+        z-index: 3;
         top: 0;
         left: 0;
+
+        width: 100%;
+        height: 100%;
+
         content: "";
-        z-index: 3;
+
+        opacity: 0.85;
+        background-color: black;
     }
 }
 
 #header {
-    padding-left: 40px;
-    padding-top: 40px;
     position: relative;
     z-index: 10;
+
+    padding-top: 40px;
+    padding-left: 40px;
 
     a {
         display: inline-block;
 
         .logo {
-            max-width: 235px;
             width: 100%;
+            max-width: 235px;
             height: auto;
         }
     }
 }
 
 .absolute-img {
-    .absoluted;
-    width: 100%;
-    height: auto;
     top: 0;
     left: 0;
+
+    width: 100%;
+    height: auto;
+
+    .absoluted;
 }
 
 #absolute-img-container {
@@ -92,63 +100,76 @@ body {
     &-3,
     &-4,
     &-5 {
-        .absoluted;
-        width: 50%;
         z-index: 3;
+
+        width: 50%;
+
+        .absoluted;
     }
 
     &-1 {
-        left: -25%;
         top: 25%;
+        left: -25%;
+
         max-width: 335px;
     }
 
     &-2 {
-        right: 2%;
         top: -90%;
+        right: 2%;
+
         max-width: 335px;
     }
 
     &-3 {
         right: -18%;
         bottom: 68%;
+
         max-width: 576px;
     }
 
     &-4 {
-        left: -10%;
         top: -60%;
+        left: -10%;
+
         max-width: 392px;
     }
 
     &-5 {
-        left: 15%;
         bottom: 10%;
+        left: 15%;
+
         max-width: 544px;
     }
 }
 
 .content {
-    text-align: center;
-    color: #fff;
-    padding-top: 180px;
     position: relative;
     z-index: 10;
+
+    padding-top: 180px;
+
+    text-align: center;
+
+    color: #fff;
 
     .caption {
         padding-bottom: 55px;
 
         h1 {
-            font: 50px 'PTSans_Regular', Arial, sans-serif;
-            text-transform: uppercase;
             margin: 0;
             padding-bottom: 45px;
+
+            text-transform: uppercase;
+
+            font: 50px 'PTSans_Regular', Arial, sans-serif;
         }
 
         p {
-            font: 18px 'OpenSans-Light', Arial, sans-serif;
-            padding: 7px;
             margin: 0;
+            padding: 7px;
+
+            font: 18px 'OpenSans-Light', Arial, sans-serif;
         }
 
         .btn-primary {
@@ -158,15 +179,19 @@ body {
 }
 
 #footer {
-    width: 100%;
-    display: block;
-    font: 14px 'OpenSans-Regular', Arial, sans-serif;
-    height: 55px;
-    background-color: black;
-    color: #fff;
-    padding: 20px;
-    z-index: 10;
     position: relative;
+    z-index: 10;
+
+    display: block;
+
+    width: 100%;
+    height: 55px;
+    padding: 20px;
+
+    color: #fff;
+    background-color: black;
+
+    font: 14px 'OpenSans-Regular', Arial, sans-serif;
 }
 @media screen and (max-width: 960px) {
     .content {
@@ -174,8 +199,9 @@ body {
 
         .caption {
             h1 {
-                font-size: 40px;
                 word-wrap: break-word;
+
+                font-size: 40px;
             }
 
             p {
@@ -186,8 +212,8 @@ body {
 }
 @media screen and (max-width: 400px) {
     #header {
-        padding-left: 20px;
         padding-top: 20px;
+        padding-left: 20px;
     }
 
     .content {
@@ -195,10 +221,21 @@ body {
 
         .caption {
             h1 {
-                font-size: 30px;
-                word-wrap: break-word;
                 padding-bottom: 20px;
+
+                word-wrap: break-word;
+
+                font-size: 30px;
             }
         }
+    }
+
+    #lookingFor,
+    #submitOrder {
+        float: left;
+
+        width: 100%;
+        max-width: 340px;
+        margin: 0;
     }
 }
