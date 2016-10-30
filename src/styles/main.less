@@ -1,4 +1,5 @@
 @import url(_fonts);
+@import url(_bgParts);
 @import url(_mainBtn);
 @import url(_modalWindow);
 
@@ -44,6 +45,7 @@ body {
 #wrapper {
     position: relative;
     z-index: 2;
+    overflow: hidden;
 
     height: auto !important;
     height: 100%;
@@ -84,64 +86,6 @@ body {
     }
 }
 
-.absolute-img {
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: auto;
-
-    .absoluted;
-}
-
-#absolute-img-container {
-    &-1,
-    &-2,
-    &-3,
-    &-4,
-    &-5 {
-        z-index: 3;
-
-        width: 50%;
-
-        .absoluted;
-    }
-
-    &-1 {
-        top: 25%;
-        left: -25%;
-
-        max-width: 335px;
-    }
-
-    &-2 {
-        top: -90%;
-        right: 2%;
-
-        max-width: 335px;
-    }
-
-    &-3 {
-        right: -18%;
-        bottom: 68%;
-
-        max-width: 576px;
-    }
-
-    &-4 {
-        top: -60%;
-        left: -10%;
-
-        max-width: 392px;
-    }
-
-    &-5 {
-        bottom: 10%;
-        left: 15%;
-
-        max-width: 544px;
-    }
-}
 
 .content {
     position: relative;
@@ -185,7 +129,6 @@ body {
     display: block;
 
     width: 100%;
-    height: 55px;
     padding: 20px;
 
     color: #fff;
@@ -211,9 +154,11 @@ body {
     }
 }
 @media screen and (max-width: 400px) {
+  body {
+    font-size: 90%;
+  }
     #header {
-        padding-top: 20px;
-        padding-left: 20px;
+        padding:20px;
     }
 
     .content {
@@ -230,12 +175,4 @@ body {
         }
     }
 
-    #lookingFor,
-    #submitOrder {
-        float: left;
-
-        width: 100%;
-        max-width: 340px;
-        margin: 0;
-    }
 }

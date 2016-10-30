@@ -1,13 +1,11 @@
 .modal-dialog {
     width: 100%;
     max-width: 770px;
-
     color: black;
 
     .modal-content {
         border-radius: 0;
         padding: 15px;
-
         font: 14px 'OpenSans-Regular',Arial, sans-serif;
 
         input,
@@ -34,20 +32,34 @@
                 }
             }
 
+            &-footer {
+                    a {
+                        display: inline-block;
+                        color: #00aeef;
+                        text-decoration: underline;
+                        margin-top: 20px;
+                    }
+                    #submitOrder {
+                        border: 0;
+                        margin: 0;
+                    }
+                    @media(max-width:400px){
+                      & textarea,
+                      & .btn,
+                      & a {
+                          text-align: center;
+                          float: left !important;
+                          padding-bottom: 15px;
+                          width: 100%;
+                          max-width: 340px;
+                          margin: 0;
+                      }
+                    }
+
+            }
+
             label {
                 font-weight: bold;
-            }
-        }
-
-        &-footer {
-            text-align: left;
-
-            a {
-                display: inline-block;
-            }
-
-            button {
-                float: right;
             }
         }
     }
@@ -55,7 +67,6 @@
 
 h4.modal-title {
     text-align: center;
-
     font: 24px 'OpenSans-Regular',Arial, sans-serif;
     font-weight: bold;
 }

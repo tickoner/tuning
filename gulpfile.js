@@ -51,7 +51,9 @@ gulp.task('vendor-js', function() {
   return gulp.src([
     'src/vendor/bootstrap/dist/js/bootstrap.js',
     'src/vendor/bootstrap-select/dist/js/bootstrap-select.js',
-    'src/vendor/parallax/deploy/jquery.parallax.js'
+    'src/vendor/parallax/deploy/jquery.parallax.js',
+    'src/vendor/jquery-validation/dist/jquery.validate.js',
+    'src/vendor/jquery-validation/dist/additional-methods.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())

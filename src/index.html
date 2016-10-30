@@ -60,7 +60,7 @@
             <!-- <div class=""> -->
             <div class="row">
                 <div class="modal-content .col-md-8 .col-md-offset-2">
-                    <form id="sendOrder">
+                    <form id="sendOrder" action="">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="myModalLabel">Замовлення</h4>
@@ -70,13 +70,13 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="vinCode">VIN Номер автомобіля</label>
-                                        <input type="text" class="form-control" id="vinCode" placeholder="WBA3A9C59EF479042">
+                                        <input type="text" class="form-control" id="vinCode" name="vinCode" placeholder="WBA3A9C59EF479042">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-xs-6">
                                     <div class="form-group">
                                         <label for="year">Рік випуску</label>
-                                        <select class="selectpicker show-tick" id="year" data-width="170px">
+                                        <select class="selectpicker show-tick" id="year" name="year"data-width="170px">
                             <option value="2016">2016</option>
                             <option value="2015">2015</option>
                             <option value="2014">2014</option>
@@ -202,13 +202,13 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="marks">Марка</label>
-                                        <input type="text" class="form-control" id="marks" name="marka_id" placeholder="BMW">
+                                        <input type="text" class="form-control" id="marks" name="marka_id" placeholder="BMW" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="model">Модель</label>
-                                        <input type="text" class="form-control" id="models" placeholder="E39">
+                                        <input type="text" class="form-control" id="models" name="models" placeholder="E39" required>
                                     </div>
                                 </div>
                             </div>
@@ -223,14 +223,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <div class="row">
-                                <div class="col-md-6 col-xs-12">
-                                    <a href="#">Пошук за номером запчастини</a>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    <button type="button" class="btn btn-primary" id="submitOrder">Взнати ціну</button>
-                                </div>
-                            </div>
+                          <button type="submit" class="btn btn-primary hvr-ripple-out" id="submitOrder">Взнати ціну</button>
+                          <a id="searchNumber" class="pull-left" href="#">Пошук за номером запчастини</a>
                         </div>
                     </form>
                 </div>
