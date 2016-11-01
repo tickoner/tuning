@@ -124,25 +124,20 @@ $(document).ready(function() {
                 maxlength: "Введіть коректний номер"
             }
         },
-        submitHandler: function() {
-          //E-mail Ajax Send
-          $("#sendOrder").submit(function() { //Change
-              var th = $(this);
-              $.ajax({
-                  type: "POST",
-                  url: "/mail.php",
-                  data: th.serialize()
-              }).done(function() {
-                  alert("Дякуємо за замовлення! Незабаром ми з Вами зв'яжемося.");
-                  setTimeout(function() {
-                      // Done Functions
-                      th.trigger("reset");
-                  }, 1000);
-              });
-              return false;
-          });
+        submitHandler: function(form) {
+            $.ajax({
+                type: "POST",
+                url: "/mail.php",
+                data: $(form).serialize(),
+                succes: function() {
+                    alert("Дякуємо за замовлення! Незабаром ми з Вами зв'яжемося.");
+                    setTimeout(function() {
+                        // Done Functions
+                        th.trigger("reset");
+                    }, 1000);
+                }
+            });
+            return false; // required to block normal submit since you used ajax
         }
-
     });
-
 });

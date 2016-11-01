@@ -10,6 +10,17 @@ gulp.task('html', function() {
   return gulp.src('src/*.html')
   .pipe(gulp.dest('dist'));
 });
+//copy favicon files into dist
+gulp.task('favicon', function() {
+  return gulp.src([
+    'src/*.png',
+    'src/*.ico',
+    'src/browserconfig.xml',
+    'src/manifest.json'
+  ])
+  .pipe(gulp.dest('dist'));
+});
+
 //copy php files into dist
 gulp.task('php', function() {
   return gulp.src('src/*.php')
@@ -84,4 +95,4 @@ gulp.task('watch', function() {
   gulp.watch('dist/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default',['html','php','images','fonts','app-css','vendor-css','vendor-js','app-js','images','watch']);
+gulp.task('default',['html','php','images','favicon','fonts','app-css','vendor-css','vendor-js','app-js','images','watch']);
