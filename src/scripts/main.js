@@ -28,8 +28,8 @@ $(document).ready(function() {
 
             $(this).find('.absolute-img').each(
                 function() {
-                    var diffX = $('.caption').width() - $(this).width();
-                    var diffY = $('.caption').height() - $(this).height();
+                    var diffX = $('#wrapper').width() - $(this).width();
+                    var diffY = $('#wrapper').height() - $(this).height();
 
                     var myX = diffX * (mouseXPercent / 1000);
 
@@ -37,15 +37,15 @@ $(document).ready(function() {
 
 
                     var cssObj = {
-                        'left': myX + '%',
-                        'top': myY + '%'
+                        'left': myX + 'px',
+                        'top': myY + 'px'
                     }
 
                     $(this).animate({
                         left: myX,
                         top: myY
                     }, {
-                        duration: 50,
+                        duration: 25,
                         queue: false,
                         easing: 'linear'
                     });

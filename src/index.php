@@ -51,6 +51,21 @@
   </style>
 
     <div id="wrapper">
+      <div id="absolute-img-container-1">
+          <img class="absolute-img" src="img/parts/blue-part-1.png" alt="">
+      </div>
+      <div id="absolute-img-container-2">
+          <img class="absolute-img" src="img/parts/blue-part-2.png" alt="">
+      </div>
+      <div id="absolute-img-container-3">
+          <img class="absolute-img" src="img/parts/blue-part-3.png" alt="">
+      </div>
+      <div id="absolute-img-container-4">
+          <img class="absolute-img" src="img/parts/blue-part-4.png" alt="">
+      </div>
+      <div id="absolute-img-container-5">
+          <img class="absolute-img" src="img/parts/blue-part-5.png" alt="">
+      </div>
         <!-- header -->
         <div id="header">
             <a href="#"><img src="img/logo.png" alt="logo" class="logo"></a>
@@ -63,21 +78,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <!-- parallax images-->
-                        <div id="absolute-img-container-1">
-                            <img class="absolute-img" src="img/parts/blue-part-1.png" alt="">
-                        </div>
-                        <div id="absolute-img-container-2">
-                            <img class="absolute-img" src="img/parts/blue-part-2.png" alt="">
-                        </div>
-                        <div id="absolute-img-container-3">
-                            <img class="absolute-img" src="img/parts/blue-part-3.png" alt="">
-                        </div>
-                        <div id="absolute-img-container-4">
-                            <img class="absolute-img" src="img/parts/blue-part-4.png" alt="">
-                        </div>
-                        <div id="absolute-img-container-5">
-                            <img class="absolute-img" src="img/parts/blue-part-5.png" alt="">
-                        </div>
+
                         <div class="caption">
                             <h1>Автозапчастини на замовлення</h1>
                             <p>Ми допоможемо вам придбати оригінальні запчастини за найнижчим цінами.</p>
