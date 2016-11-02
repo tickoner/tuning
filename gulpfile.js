@@ -1,13 +1,42 @@
 var gulp        = require('gulp'),
-    less        = require('gulp-less'),
-    nano        = require('gulp-cssnano'),
-    browserSync = require('browser-sync').create(),
+    php         = require('gulp-connect-php'),
+    browserSync = require('browser-sync'),
+    del         = require('del'),
     concat      = require('gulp-concat'),
+    nano        = require('gulp-cssnano'),
+    less        = require('gulp-less'),
     uglify      = require('gulp-uglify'),
+    imagemin    = require('gulp-imagemin'),
     addSrc      = require('gulp-add-src');
+
+var reload  = browserSync.reload;
+
+gulp.task('php', function() {
+    php.server({ base: 'dist', port: 8010, keepalive: true});
+});
+gulp.task('browser-sync',['php'], function() {
+    browserSync({
+      proxy: 'tuning.te.ua', //work php
+      notify: false
+    });
+});
+//clean dist
+gulp.task('del', function() {
+    return del('dist');
+});
+//copy folders into dist
+gulp.task('folders', function() {
+  return gulp.src('src/phplib/*.*')
+  .pipe(gulp.dest('dist/phplib'));
+});
 //copy html files into dist
 gulp.task('html', function() {
   return gulp.src('src/*.html')
+  .pipe(gulp.dest('dist'));
+});
+//copy php files into dist
+gulp.task('phpFiles', function() {
+  return gulp.src('src/*.php')
   .pipe(gulp.dest('dist'));
 });
 //copy favicon files into dist
@@ -18,26 +47,20 @@ gulp.task('favicon', function() {
     'src/browserconfig.xml',
     'src/manifest.json'
   ])
+  .pipe(imagemin())
   .pipe(gulp.dest('dist'));
 });
-
-//copy php files into dist
-gulp.task('php', function() {
-  return gulp.src('src/*.php')
-  .pipe(gulp.dest('dist'));
-});
-
 //copy images into dist/img
 gulp.task('images', function() {
   return gulp.src('src/img/**/*.*')
+  .pipe(imagemin())
   .pipe(gulp.dest('dist/img'));
 });
 //copy fonts into dist/fonts
 gulp.task('fonts', function() {
   return gulp.src([
     'src/fonts/**/*.*',
-    'src/vendor/bootstrap/dist/fonts/*.*',
-    'src/vendor/font-awesome/fonts/*.*'
+    'src/vendor/bootstrap/dist/fonts/*.*'
   ])
   .pipe(gulp.dest('dist/fonts'));
 });
@@ -54,14 +77,13 @@ gulp.task('vendor-css', function() {
   return gulp.src([
     'src/vendor/bootstrap/dist/css/bootstrap.css',
     'src/vendor/bootstrap-select/dist/css/bootstrap-select.css',
-    'src/vendor/font-awesome/css/font-awesome.css',
-    'src/vendor/normalize-css/normalize.css'
+    'src/vendor/normalize-css/normalize.css',
+    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.css'
   ])
   .pipe(nano())
   .pipe(concat('vendor.min.css'))
   .pipe(gulp.dest('dist/css'));
 });
-
 //copy vendor javascripts
 gulp.task('vendor-js', function() {
   return gulp.src([
@@ -69,7 +91,8 @@ gulp.task('vendor-js', function() {
     'src/vendor/bootstrap-select/dist/js/bootstrap-select.js',
     'src/vendor/parallax/deploy/jquery.parallax.js',
     'src/vendor/jquery-validation/dist/jquery.validate.js',
-    'src/vendor/jquery-validation/dist/additional-methods.js'
+    'src/vendor/jquery-validation/dist/additional-methods.js',
+    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())
@@ -85,14 +108,16 @@ gulp.task('app-js', function() {
   .pipe(concat('app.min.js'))
   .pipe(gulp.dest('dist/js'))
 });
-
+//watch
 gulp.task('watch', function() {
-  browserSync.init({
-    server: 'dist'
-  })
-  gulp.watch('src/styles/**/*.less', ['app-css']);
+  // browserSync.init({
+  //   server: 'dist'
+  // });
+  gulp.watch('src/styles/*.less', ['app-css']);
   gulp.watch('src/*.html', ['html']);
+  gulp.watch('src/*.php', ['phpFiles']);
   gulp.watch('dist/*.html').on('change', browserSync.reload);
+  gulp.watch('dist/*.php').on('change', browserSync.reload);
 });
-
-gulp.task('default',['html','php','images','favicon','fonts','app-css','vendor-css','vendor-js','app-js','images','watch']);
+//default
+gulp.task('default', ['browser-sync','html','folders','phpFiles','favicon','images','fonts','app-css','vendor-css','vendor-js','app-js','watch']);

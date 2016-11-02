@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -24,9 +23,32 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-</head>
 
-<body>
+    <meta property="og:url"           content="https://tuning.te.ua" />
+  	<meta property="og:type"          content="website" />
+  	<meta property="og:title"         content="Пошук та підбір найдешевших автозапчастин у Тернополі" />
+  	<meta property="og:description"   content="Ми допоможемо вам придбати оригінальні запчастини за найнижчим цінами" />
+  	<meta property="og:image"         content="https://tuning.te.ua/img/share.png" />
+
+    <meta property="fb:app_id" content="1220091984700643" />
+    <meta name="yandex-verification" content="e9309def113a0348" />
+    <?php require_once 'phplib/Mobile_Detect.php';
+      $detect = new Mobile_Detect;
+    ?>
+
+    <script type="text/javascript">
+      var IS_DESKTOP = <?php echo !$detect->isMobile()&&!$detect->isTablet() ? '1' : '0'; ?>,
+        IS_TABLET = <?php echo $detect->isTablet() ? '1' : '0'; ?>,
+        IS_MOBILE = <?php echo  $detect->isMobile() && !$detect->isTablet() ? '1' : '0'; ?>;
+    </script>
+</head>
+<body class="<?php echo $detect->isMobile() ? 'mobile-view' : 'desktop-view'; ?>">
+  <style media="screen">
+    .mobile-view input,
+    .mobile-view textarea {
+      font-size: 16px; /* prevent zooming on mobile when focus; */
+    }
+  </style>
 
     <div id="wrapper">
         <!-- header -->
@@ -240,9 +262,15 @@
                                         <label for="inputSearch">Яку запчастину шукаєте?</label>
                                         <textarea class="form-control" id="inputSearch" name="inputSearch" placeholder='Наприклад: “амортизатор задній”, “датчик температури”' rows="3" ></textarea>
                                     </div>
+                                    <a id="searchNumber" class="pull-left" href="#">Пошук за номером запчастини</a>
+                                    <div class="form-group hidden">
+                                        <label for="partNumber">Пошук за номером запчастини</label>
+                                        <input type="text" id="partNumber" name="partNumber" class="form-control" placholder="9091520003">
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
+                                <h3>Як з Вами зв'язатись?</h3>
                                 <div class="col-md-4 col-xs-12">
                                     <div class="form-group">
                                         <label for="name">Iм'я</label>
@@ -266,7 +294,6 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary hvr-ripple-out" id="submitOrder">Взнати ціну</button>
-                          <a id="searchNumber" class="pull-left" href="#">Пошук за номером запчастини</a>
                         </div>
                     </form>
                 </div>
@@ -275,6 +302,11 @@
         </div>
         <script src="js/vendor.min.js"></script>
         <script src="js/app.min.js"></script>
+        <!-- metrika -->
+        <?php include  'metrika.php' ?>
+        <!-- metrika end -->
+
+
 </body>
 
 </html>

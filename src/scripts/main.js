@@ -54,6 +54,19 @@ $(document).ready(function() {
             );
 
         });
+    //toggle link searchPart
+    $("#searchNumber").click(function() {
+        event.preventDefault();
+        $("#partNumber").parent().toggleClass("hidden");
+        $("#searchNumber").toggleClass("hidden");
+    });
+    $("label[for='partNumber']").click(function() {
+      event.preventDefault();
+      $("#partNumber").parent().toggleClass("hidden");
+      $("#searchNumber").toggleClass("hidden");
+    });
+    // using tag-editor
+    $('#partNumber').tagEditor();
     //form validation
     $("#sendOrder").validate({
         rules: {
@@ -82,15 +95,18 @@ $(document).ready(function() {
                 maxlength: 20
             },
             email: {
-                required: true,
-                email: true
+                email: true,
+                required: function(element) {
+                    return (!$("#tel").hasClass('valid'));
+                  }
             },
             tel: {
-                required: true,
+                required: function(element) {
+                    return (!$("#email").hasClass('valid'));
+                },
                 minlength: 6,
-                maxlength: 16
+                maxlength: 16,
             }
-
         },
         messages: {
             year: {
@@ -116,7 +132,7 @@ $(document).ready(function() {
             },
             email: {
                 required: "Введіть E-mail",
-                email: "Це коректний E-mail"
+                email: "Введіть коректний E-mail"
             },
             tel: {
                 required: "Введіть номер телефону",
@@ -124,20 +140,18 @@ $(document).ready(function() {
                 maxlength: "Введіть коректний номер"
             }
         },
-        submitHandler: function(form) {
+        submitHandler: function() {
             $.ajax({
                 type: "POST",
                 url: "/mail.php",
-                data: $(form).serialize(),
+                data: $('#sendOrder').serialize(),
                 succes: function() {
+                    $('#submitOrder').attr('disabled', true);
                     alert("Дякуємо за замовлення! Незабаром ми з Вами зв'яжемося.");
-                    setTimeout(function() {
-                        // Done Functions
-                        th.trigger("reset");
-                    }, 1000);
                 }
             });
             return false; // required to block normal submit since you used ajax
         }
+
     });
 });
