@@ -9,6 +9,17 @@ $.validator.addMethod("vinCheck", function(value, element) {
     return this.optional(element) || /^([0-9A-HJ-NPR-Z]{9})([A-HJ-NPR-TV-Y1-9])([0-9A-HJ-NPR-Z])([0-9A-HJ-NPR-Z]{2}\d{4})$/i.test(value);
 }, "Будь ласка, введіть правильний VIN номер");
 //
+//////////Range Slider
+var output = document.querySelectorAll('output')[0];
+
+$(document).on('input', 'input[type="range"]', function(e) {
+      output.innerHTML = e.currentTarget.value;
+});
+
+$('input[type=range]').rangeslider({
+  polyfill: false
+});
+//////////
 $(document).ready(function() {
     pushFooter();
     //footer
@@ -57,13 +68,13 @@ $(document).ready(function() {
     //toggle link searchPart
     $("#searchNumber").click(function() {
         event.preventDefault();
-        $("#partNumber").parent().toggleClass("hidden");
-        $("#searchNumber").toggleClass("hidden");
+        $("#partNumber").parent().fadeToggle( "slow", "linear" );
+        $("#searchNumber").fadeToggle( "fast", "linear" );
     });
     $("label[for='partNumber']").click(function() {
       event.preventDefault();
-      $("#partNumber").parent().toggleClass("hidden");
-      $("#searchNumber").toggleClass("hidden");
+      $("#partNumber").parent().fadeToggle( "fast", "linear" );
+      $("#searchNumber").fadeToggle( "slow", "linear" );
     });
     // using tag-editor
     $('#partNumber').tagEditor();
@@ -139,19 +150,27 @@ $(document).ready(function() {
                 minlength: "Надто коротко",
                 maxlength: "Введіть коректний номер"
             }
-        },
-        submitHandler: function() {
-            $.ajax({
-                type: "POST",
-                url: "/mail.php",
-                data: $('#sendOrder').serialize(),
-                succes: function() {
-                    $('#submitOrder').attr('disabled', true);
-                    alert("Дякуємо за замовлення! Незабаром ми з Вами зв'яжемося.");
-                }
-            });
-            return false; // required to block normal submit since you used ajax
         }
-
     });
 });
+$('#sendOrder').submit(function() {
+  event.preventDefault();
+  var valid = $('#sendOrder').valid();
+  if (valid) {
+    $.ajax({
+        type: "POST",
+        url: "/mail.php",
+        data: $('#sendOrder').serialize(),
+        success: function(data){
+          alert( "Заявку прийнято, очікуйте відповідь найближчим часом.");
+        },
+        error: function(data){
+          alert( "Вибачте, трапилась помилка, спробуйте ще раз.");
+        },
+        complete: function(data) {
+          $('#sendOrder').trigger('reset');
+        }
+    });
+  }
+  return false;
+})

@@ -1,5 +1,5 @@
 var gulp        = require('gulp'),
-    php         = require('gulp-connect-php'),
+    connectPHP  = require('gulp-connect-php'),
     browserSync = require('browser-sync'),
     del         = require('del'),
     concat      = require('gulp-concat'),
@@ -12,13 +12,18 @@ var gulp        = require('gulp'),
 var reload  = browserSync.reload;
 
 gulp.task('php', function() {
-    php.server({ base: 'dist', port: 8010, keepalive: true});
+    connectPHP.server({ base: 'dist', keepalive:true, hostname: 'localhost', port:8010, open: false});
 });
-gulp.task('browser-sync',['php'], function() {
-    browserSync({
-      proxy: 'tuning.te.ua', //work php
-      notify: false
-    });
+// ////////////////////////////////////////////////
+// Browser-Sync
+// // /////////////////////////////////////////////
+gulp.task('browserSync', function() {
+  browserSync({
+    proxy: 'tuning', //where php running
+    port: 8010,
+    // open: true,
+    notify: true
+  });
 });
 //clean dist
 gulp.task('del', function() {
@@ -29,15 +34,13 @@ gulp.task('folders', function() {
   return gulp.src('src/phplib/*.*')
   .pipe(gulp.dest('dist/phplib'));
 });
-//copy html files into dist
-gulp.task('html', function() {
-  return gulp.src('src/*.html')
-  .pipe(gulp.dest('dist'));
-});
-//copy php files into dist
+// ////////////////////////////////////////////////
+// PHP
+// ///////////////////////////////////////////////
 gulp.task('phpFiles', function() {
   return gulp.src('src/*.php')
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('dist'))
+  .pipe(browserSync.stream());
 });
 //copy favicon files into dist
 gulp.task('favicon', function() {
@@ -78,7 +81,8 @@ gulp.task('vendor-css', function() {
     'src/vendor/bootstrap/dist/css/bootstrap.css',
     'src/vendor/bootstrap-select/dist/css/bootstrap-select.css',
     'src/vendor/normalize-css/normalize.css',
-    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.css'
+    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.css',
+    'src/vendor/rangeslider.js/dist/rangeslider.css'
   ])
   .pipe(nano())
   .pipe(concat('vendor.min.css'))
@@ -92,7 +96,8 @@ gulp.task('vendor-js', function() {
     'src/vendor/parallax/deploy/jquery.parallax.js',
     'src/vendor/jquery-validation/dist/jquery.validate.js',
     'src/vendor/jquery-validation/dist/additional-methods.js',
-    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.js'
+    'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.js',
+    'src/vendor/rangeslider.js/dist/rangeslider.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())
@@ -107,17 +112,16 @@ gulp.task('app-js', function() {
   .pipe(uglify())
   .pipe(concat('app.min.js'))
   .pipe(gulp.dest('dist/js'))
+  .pipe(browserSync.stream());
 });
-//watch
+
 gulp.task('watch', function() {
-  // browserSync.init({
-  //   server: 'dist'
-  // });
   gulp.watch('src/styles/*.less', ['app-css']);
-  gulp.watch('src/*.html', ['html']);
+  gulp.watch('src/scripts/*.js', ['app-js']);
   gulp.watch('src/*.php', ['phpFiles']);
-  gulp.watch('dist/*.html').on('change', browserSync.reload);
+  gulp.watch('src/styles/*.less').on('change', browserSync.reload);
+  gulp.watch('dist/js/*.js').on('change', browserSync.reload);
   gulp.watch('dist/*.php').on('change', browserSync.reload);
 });
 //default
-gulp.task('default', ['browser-sync','html','folders','phpFiles','favicon','images','fonts','app-css','vendor-css','vendor-js','app-js','watch']);
+gulp.task('default', ['watch','browserSync','php','phpFiles','folders','favicon','images','fonts','app-css','vendor-css','vendor-js','app-js']);
