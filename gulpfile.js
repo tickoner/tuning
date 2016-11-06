@@ -34,6 +34,12 @@ gulp.task('folders', function() {
   return gulp.src('src/phplib/*.*')
   .pipe(gulp.dest('dist/phplib'));
 });
+//data files
+gulp.task('data', function() {
+  return gulp.src('src/data/*.*')
+  .pipe(gulp.dest('dist/data'));
+});
+
 // ////////////////////////////////////////////////
 // PHP
 // ///////////////////////////////////////////////
@@ -124,4 +130,4 @@ gulp.task('watch', function() {
   gulp.watch('dist/*.php').on('change', browserSync.reload);
 });
 //default
-gulp.task('default', ['watch','browserSync','php','phpFiles','folders','favicon','images','fonts','app-css','vendor-css','vendor-js','app-js']);
+gulp.task('default', ['watch','browserSync','php','phpFiles','folders','data','favicon','images','fonts','app-css','vendor-css','vendor-js','app-js']);

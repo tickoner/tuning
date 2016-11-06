@@ -52,21 +52,13 @@
                         margin-top: 15px;
                     }
 
-                    label[for="engineVolume"] {
-                        padding-bottom: 8px;
-                    }
-
-                    output {
-                        display: inline-block;
-
-                        padding-top: 0;
-                        padding-left: 10px;
-
-                        font-size: 1.8em;
-                        line-height: 1;
+                    label[for="engineVolumeInput"] {
+                      display: block;
                     }
 
                     .rangeslider {
+                        top:5px;
+
                         display: inline-block;
 
                         width: 70%;
@@ -74,6 +66,14 @@
 
                     .rangeslider__fill {
                         background: #e85e5e;
+                    }
+                    input[name="engineVolume"] {
+                      max-width: 34px;
+                      height: 34px;
+
+                      text-align: center;
+
+                      border: 1px solid #ccc;
                     }
                 }
             }

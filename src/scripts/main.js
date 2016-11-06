@@ -10,10 +10,10 @@ $.validator.addMethod("vinCheck", function(value, element) {
 }, "Будь ласка, введіть правильний VIN номер");
 //
 //////////Range Slider
-var output = document.querySelectorAll('output')[0];
+var output = $('#engineVolumeInput');
 
 $(document).on('input', 'input[type="range"]', function(e) {
-      output.innerHTML = e.currentTarget.value;
+      output.val(e.currentTarget.value);
 });
 
 $('input[type=range]').rangeslider({
@@ -87,6 +87,10 @@ $(document).ready(function() {
             year: {
                 required: true
             },
+            engineVolume: {
+                required: true,
+                number: true
+            },
             marka_id: {
                 minlength: 2,
                 required: true
@@ -126,6 +130,10 @@ $(document).ready(function() {
             marka_id: {
                 minlength: "Надто коротко",
                 required: "Введіть марку автомобіля"
+            },
+            engineVolume: {
+                required: "Введіть об'єм двигуна",
+                number: "Введіть число"
             },
             models: {
                 minlength: "Надто коротко",
