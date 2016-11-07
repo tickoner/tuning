@@ -121,6 +121,70 @@
     }
 }
 
+.mobile-view {
+  .modal-dialog {
+    margin: 0;
+    .modal-content {
+      border: none;
+      .modal-body {
+        input {
+          max-width: none;
+        }
+        input[name="engineVolume"] {
+          margin-right: 20px;
+        }
+      }
+      .modal-footer {
+        text-align: center;
+        button {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.modal-header {
+  .close {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+      span {
+        position: relative;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        overflow: hidden;
+        text-indent: -9999px;
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          top: 50%;
+          left: 0;
+          margin-top: -1px;
+          background: #000;
+        }
+        &::before {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+        &::after {
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+      }
+  }
+}
+
+
 h4.modal-title {
     text-align: center;
 
