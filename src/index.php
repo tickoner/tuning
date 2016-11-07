@@ -173,7 +173,7 @@
                                 <div class="col-md-4 col-xs-12">
                                   <div class="form-group range-holder">
                                     <label for="engineVolumeInput">Об'єм двигуна</label>
-                                    <input id="engineVolumeInput" name="engineVolume" value="1.5">
+                                    <input id="engineVolumeInput" type="number" name="engineVolume" value="1.5">
 
                                     <input class=""
                                       type="range"
@@ -208,11 +208,67 @@
                                         <label for="inputSearch">Яку запчастину шукаєте?</label>
                                         <textarea class="form-control" id="inputSearch" name="inputSearch" placeholder='Наприклад: “амортизатор задній”, “датчик температури”' rows="3" ></textarea>
                                     </div>
-                                    <a id="searchNumber" class="pull-left" href="#">Пошук за номером запчастини</a>
+                                    <a id="searchNumber" class="underline" href="#">Пошук за номером запчастини</a>
                                     <div class="form-group" style="display:none;">
-                                        <label for="partNumber">Пошук за номером запчастини</label>
                                         <input type="text" id="partNumber" name="partNumber" class="form-control" placholder="9091520003">
                                     </div>
+                                    <a id="catalogueLink" class="underline" href="#">Оригінальні каталоги</a>
+                                    <div class="dropdown" id="catalogueLinkDrop" style="display:none;">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                          Посилання на каталоги
+                                          <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+                                          <li><a target=_blank href="http://eper.fiatforum.com">ALFA ROMEO</a></li>
+                                          <li><a target=_blank href="http://audi.afora.ru/RDW/">AUDI</a></li>
+                                          <li><a target=_blank href="http://www.neoriginal.ru/cat/bmw">BMW</a></li>
+                                          <li><a target=_blank href="https://ngpc.cnh.com">CASE</a></li>
+                                          <li><a target=_blank href="http://www.ilcats.ru/clid/1">CHRYSLER</a></li>
+                                          <li><a target=_blank href="http://www.exsale.ru/citroen-katalog-originalnih-zapchastey/">CITROEN</a></li>
+                                          <li><a target=_blank href="http://autocats.info/catalog/models/2/">DAEWOO</a></li>
+                                          <li><a target=_blank href="http://lanos-chevrolet.ru">DAEWOO</a></li>
+                                          <li><a target=_blank href="http://www.at-part.ru/daf-parts-catalog.html">DAF</a></li>
+                                          <li><a target=_blank href="http://www.at-part.ru/daf-parts-catalog.html">DAF</a></li>
+                                          <li><a target=_blank href="http://eper.fiatforum.com">FIAT</a></li>
+                                          <li><a target=_blank href="http://www.fordcat.ru/shop/1">FORD</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/ford/">FORD</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/honda/">HONDA</a></li>
+                                          <li><a target=_blank href="https://estore.honda.com/">HONDA</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/hyundai/">HYUNDAI</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/isuzu/">ISUZU</a></li>
+                                          <li><a target=_blank href="http://catalog.isuzu-astra.com/">ISUZU</a></li>
+                                          <li><a target=_blank href="http://80.68.67.6:8090/mycatric/mainAct.jsp">IVECO</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/kia/">KIA</a></li>
+                                          <li><a target=_blank href="http://www.avtoall.ru/acat/index1.php">LADA</a></li>
+                                          <li><a target=_blank href="http://eper.fiatforum.com">LANCIA</a></li>
+                                          <li><a target=_blank href="http://www.lrcat.com/">LAND ROVER</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/mazda/">MAZDA</a></li>
+                                          <li><a target=_blank href="http://mbfans.info/RU/mercedes/c/5/a/FG/cat/56L/600353">MERCEDES</a></li>
+                                          <li><a target=_blank href="http://catalog.all4car.com.ua/mercedes/">MERCEDES</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/mitsubishi/">MITSUBISHI</a></li>
+                                          <li><a target=_blank href="http://nissan-cat.ru/">NISSAN</a></li>
+                                          <li><a target=_blank href="http://opel.vdopel.ru/opel_eu.lmz">OPEL</a></li>
+                                          <li><a target=_blank href="http://www.auto-parts.spb.ru/cat/cats/m.mycat?cat=op&client=dr2000">OPEL</a></li>
+                                          <li><a target=_blank href="http://www.exsale.ru/pego-katalog-originalnih-zapchastey/">PEUGEOT</a></li>
+                                          <li><a target=_blank href="http://renault.afora.ru/">RENAULT</a></li>
+                                          <li><a target=_blank href="http://renault-catalog.ru/">RENAULT</a></li>
+                                          <li><a target=_blank href="http://www.numcat.ru/mgrover/">ROVER</a></li>
+                                          <li><a target=_blank href="http://carcats.ru/epc/">SAAB</a></li>
+                                          <li><a target=_blank href="http://ww1.safholland.ru/sites/russia/en-US/aftermarket/partsdocu/manual/Pages/default.aspx">SAF</a></li>
+                                          <li><a target=_blank href="http://scania-catalog.ru/">SCANIA</a></li>
+                                          <li><a target=_blank href="http://seat.afora.ru/E/">SEAT</a></li>
+                                          <li><a target=_blank href="http://skoda.afora.ru/CZ/">SKODA</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/ssangyong/">SSANGYONG</a></li>
+                                          <li><a target=_blank href="http://www.ssangyong.pro/">SSANGYONG</a></li>
+                                          <li><a target=_blank href="http://cats.plentycar.ru/subaru/">SUBARU</a></li>
+                                          <li><a target=_blank href="http://suzuki-cat.ru/">SUZUKI</a></li>
+                                          <li><a target=_blank href="http://catalog.autodoc.ru/toyota/">TOYOTA</a></li>
+                                          <li><a target=_blank href="http://volkswagen.afora.ru/RDW/">VOLKSWAGEN</a></li>
+                                          <li><a target=_blank href="http://www.volvo-catalog.ru/initMenu.do">VOLVO</a></li>
+                                          <li><a target=_blank href="http://www.volvopentashop.com">VOLVO</a></li>
+                                          <li><a target=_blank href="http://carcats.ru/">VOLVO</a></li>
+                                        </ul>
+                                      </div>
                                 </div>
                             </div>
                             <div class="row">

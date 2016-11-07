@@ -68,13 +68,15 @@ $(document).ready(function() {
     //toggle link searchPart
     $("#searchNumber").click(function() {
         event.preventDefault();
+        $(this).toggleClass( "underlineBlack", 500, "easeOutSine" );
         $("#partNumber").parent().fadeToggle( "slow", "linear" );
-        $("#searchNumber").fadeToggle( "fast", "linear" );
     });
-    $("label[for='partNumber']").click(function() {
-      event.preventDefault();
-      $("#partNumber").parent().fadeToggle( "fast", "linear" );
-      $("#searchNumber").fadeToggle( "slow", "linear" );
+    //catalogues
+    $("#catalogueLink").click(function() {
+        event.preventDefault();
+        $(this).toggleClass( "underlineBlack", 500, "easeOutSine" );
+        $("#catalogueLinkDrop").fadeToggle( "slow", "linear" );
+
     });
     // using tag-editor
     $('#partNumber').tagEditor();
@@ -89,7 +91,9 @@ $(document).ready(function() {
             },
             engineVolume: {
                 required: true,
-                number: true
+                number: true,
+                min:0.4,
+                max: 8
             },
             marka_id: {
                 minlength: 2,
@@ -133,7 +137,9 @@ $(document).ready(function() {
             },
             engineVolume: {
                 required: "Введіть об'єм двигуна",
-                number: "Введіть число"
+                number: "Введіть число",
+                min: "Число від 0.4 до 8",
+                max:  "Число від 0.4 до 8"
             },
             models: {
                 minlength: "Надто коротко",

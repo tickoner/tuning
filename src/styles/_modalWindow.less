@@ -25,11 +25,15 @@
 
             &-body {
                 a {
-                    display: inline-block;
+                    display: block;
 
                     text-decoration: underline;
 
                     color: #00aeef;
+                }
+
+                #catalogueLink {
+                    padding-top: 8px;
                 }
 
                 h3 {
@@ -53,11 +57,11 @@
                     }
 
                     label[for="engineVolumeInput"] {
-                      display: block;
+                        display: block;
                     }
 
                     .rangeslider {
-                        top:5px;
+                        top: 5px;
 
                         display: inline-block;
 
@@ -67,14 +71,24 @@
                     .rangeslider__fill {
                         background: #e85e5e;
                     }
+
                     input[name="engineVolume"] {
-                      max-width: 34px;
-                      height: 34px;
+                        width: 50px;
+                        height: 35px;
 
-                      text-align: center;
+                        text-align: center;
 
-                      border: 1px solid #ccc;
+                        border: 1px solid #ccc;
                     }
+                }
+
+                .tag-editor {
+                    height: 34px;
+                    padding: 6px 12px;
+
+                    border: 1px solid #ccc;
+                    background-color: #fff;
+                    background-image: none;
                 }
             }
 

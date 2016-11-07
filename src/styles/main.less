@@ -42,9 +42,31 @@ body {
     position: absolute;
 }
 
+.underlineBlack {
+    display: block !important;
+
+    padding-bottom: 8px;
+
+    text-decoration: underline;
+
+    color: black !important;
+}
+
+.scrollable-menu {
+    overflow-x: hidden;
+
+    height: auto;
+    max-height: 190px;
+}
+
+button.dropdown-toggle {
+    border-radius: 0;
+}
+
 #wrapper {
     position: relative;
     z-index: 2;
+
     overflow: hidden;
 
     height: auto !important;
@@ -85,7 +107,6 @@ body {
         }
     }
 }
-
 
 .content {
     position: relative;
@@ -153,12 +174,18 @@ body {
         }
     }
 }
-@media screen and (max-width: 400px) {
-  body {
-    font-size: 90%;
-  }
+@media screen and (max-width: 768px) {
     #header {
-        padding:20px;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 400px) {
+    body {
+        font-size: 90%;
+    }
+
+    #header {
+        padding: 20px;
     }
 
     .content {
@@ -174,5 +201,4 @@ body {
             }
         }
     }
-
 }
