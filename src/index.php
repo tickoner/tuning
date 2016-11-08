@@ -68,17 +68,17 @@
       </div>
         <!-- header -->
         <div id="header">
-            <a href="#"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <a href="#">
+              <svg class="logo" width="230" height="107">
+                <image class="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/logo.svg" itemprop="logo" src="img/logo.png" width="230" height="107" alt="Tuning.te.ua"></image>
+              </svg>
+            </a>
         </div>
-
-
         <div class="content">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <!-- parallax images-->
-
                         <div class="caption">
                             <h1>Автозапчастини на замовлення</h1>
                             <p>Ми допоможемо вам придбати оригінальні запчастини за найнижчим цінами.</p>
