@@ -200,7 +200,9 @@ $('#sendOrder').submit(function() {
         url: "/mail.php",
         data: $('#sendOrder').serialize(),
         success: function(data){
-          toastr.info('Заявку прийнято, очікуйте відповідь найближчим часом.',"Увага!");
+//          toastr.info('Заявку прийнято, очікуйте відповідь найближчим часом.',"Увага!");
+          $('#sendOrder .form-holder, .modal-footer').addClass('hidden');
+          $('#sendOrder .form-success').show();
         },
         error: function(data){
           toastr.error('Вибачте, трапилась помилка, спробуйте ще раз.',"Увага!");
@@ -214,4 +216,9 @@ $('#sendOrder').submit(function() {
     });
   }
   return false;
-})
+});
+
+$('#myModal').on('hidden.bs.modal', function (e) {
+  $('#sendOrder .form-holder, .modal-footer').removeClass('hidden');
+  $('#sendOrder .form-success').hide();
+});
