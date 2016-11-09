@@ -103,6 +103,9 @@ $(document).ready(function() {
                 minlength: 2,
                 required: true
             },
+            fuel: {
+              required: true
+            },
             inputSearch: {
                 minlength: 5,
                 maxlength: 200,
@@ -144,6 +147,9 @@ $(document).ready(function() {
             models: {
                 minlength: "Надто коротко",
                 required: "Введіть модель автомобіля"
+            },
+            fuel: {
+              required: "Оберіть вид палива"
             },
             inputSearch: {
                 minlength: "Надто коротко",

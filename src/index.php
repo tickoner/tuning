@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="col-md-4 col-xs-6">
                                   <label for="year">Рік випуску</label>
-                                  <select class="selectpicker show-tick" id="year" name="year" data-width="170px">
+                                  <select class="selectpicker show-tick" id="year" name="year" title="Нічого не обрано" data-width="226px">
                                           <option value="2016">2016</option>
                                           <option value="2015">2015</option>
                                           <option value="2014">2014</option>
@@ -189,16 +189,25 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 col-xs-12">
+                                <div class="col-md-4 col-xs-12">
                                     <div class="form-group">
                                         <label for="marks">Марка</label>
                                         <input type="text" class="form-control" id="marks" name="marka_id" placeholder="BMW">
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-xs-12">
+                                <div class="col-md-4 col-xs-12">
                                     <div class="form-group">
                                         <label for="model">Модель</label>
                                         <input type="text" class="form-control" id="models" name="models" placeholder="E39">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="fuel">Вид палива</label>
+                                        <select class="selectpicker show-tick" id="fuel" name="fuel" title="Нічого не обрано" data-width="226px">
+                                                <option value="patrol">бензин</option>
+                                                <option value=diesel>дизель</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
