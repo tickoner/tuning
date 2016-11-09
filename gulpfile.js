@@ -77,7 +77,9 @@ gulp.task('fonts', function() {
 gulp.task('app-css', function() {
   return gulp.src('src/styles/main.less')
   .pipe(less())
-  .pipe(nano())
+  .pipe(nano(
+    {zindex: false} //z-index will not change
+  ))
   .pipe(gulp.dest('dist/css'))
   .pipe(browserSync.stream());
 });
@@ -88,7 +90,8 @@ gulp.task('vendor-css', function() {
     'src/vendor/bootstrap-select/dist/css/bootstrap-select.css',
     'src/vendor/normalize-css/normalize.css',
     'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.css',
-    'src/vendor/rangeslider.js/dist/rangeslider.css'
+    'src/vendor/rangeslider.js/dist/rangeslider.css',
+    'src/vendor/toastr/toastr.css'
   ])
   .pipe(nano())
   .pipe(concat('vendor.min.css'))
@@ -103,7 +106,8 @@ gulp.task('vendor-js', function() {
     'src/vendor/jquery-validation/dist/jquery.validate.js',
     'src/vendor/jquery-validation/dist/additional-methods.js',
     'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.js',
-    'src/vendor/rangeslider.js/dist/rangeslider.js'
+    'src/vendor/rangeslider.js/dist/rangeslider.js',
+    'src/vendor/toastr/toastr.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())

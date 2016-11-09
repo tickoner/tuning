@@ -104,7 +104,7 @@
                       <!-- Hidden Required Fields -->
                       <input type="hidden" name="project_name" value="tuning.te.ua">
                       <input type="hidden" name="admin_email" value="admin@tuning.te.ua">
-                      <input type="hidden" name="form_subject" value="Order">
+                      <input type="hidden" name="form_subject" value="Замовлення">
                       <!-- END Hidden Required Fields -->
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

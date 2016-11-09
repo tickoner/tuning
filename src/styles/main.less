@@ -58,6 +58,10 @@ body {
     height: auto;
     max-height: 190px;
 }
+#toast-container {
+  z-index: 9999 !important;
+  font: 16px 'PTSans_Regular', Arial, sans-serif;
+}
 
 button.dropdown-toggle {
     border-radius: 0;
@@ -146,11 +150,15 @@ button.dropdown-toggle {
 #footer {
     position: relative;
     z-index: 10;
+
     display: block;
+
     width: 100%;
     padding: 20px;
+
     color: #fff;
     background-color: black;
+
     font: 14px 'OpenSans-Regular', Arial, sans-serif;
 }
 @media screen and (max-width: 960px) {
@@ -169,17 +177,18 @@ button.dropdown-toggle {
             }
         }
     }
+
     .mobile-view {
-      .content {
-          padding-top: 50px;  
-      }
+        .content {
+            padding-top: 50px;
+        }
     }
 }
 @media screen and (max-width: 768px) {
     #header {
+        padding: 40px 40px 0;
+
         text-align: center;
-        padding: 40px;
-        padding-bottom: 0;
     }
 }
 @media screen and (max-width: 400px) {

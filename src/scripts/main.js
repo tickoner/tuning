@@ -19,6 +19,24 @@ $(document).on('input', 'input[type="range"]', function(e) {
 $('input[type=range]').rangeslider({
   polyfill: false
 });
+//toastr
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
 //////////
 $(document).ready(function() {
     pushFooter();
@@ -182,13 +200,16 @@ $('#sendOrder').submit(function() {
         url: "/mail.php",
         data: $('#sendOrder').serialize(),
         success: function(data){
-          alert( "Заявку прийнято, очікуйте відповідь найближчим часом.");
+          toastr.info('Заявку прийнято, очікуйте відповідь найближчим часом.',"Увага!");
         },
         error: function(data){
-          alert( "Вибачте, трапилась помилка, спробуйте ще раз.");
+          toastr.error('Вибачте, трапилась помилка, спробуйте ще раз.',"Увага!");
         },
         complete: function(data) {
           $('#sendOrder').trigger('reset');
+          $('input').removeClass('valid');
+          $('#year').selectpicker('refresh');
+          $('#fuel').selectpicker('refresh');
         }
     });
   }
