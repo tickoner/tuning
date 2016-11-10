@@ -1,5 +1,5 @@
 
-.absolute-img {
+/*.absolute-img {
     top: 0;
     left: 0;
 
@@ -8,51 +8,95 @@
 
     .absoluted;
     z-index: 4
+}*/
+
+#parallax-scene {
+position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+#parallax-scene .layer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 #absolute-img-container {
-    &-1,
-    &-2,
-    &-3,
-    &-4,
-    &-5 {
-        width: 40%;
-
-        .absoluted;
+  &-0,
+  &-1,
+  &-2,
+  &-3,
+  &-4,
+  &-5 {
+    .absoluted;
+    > img {
+      width: 40%;
+      .absoluted;
     }
+  }
 
-    &-1 {
-        bottom: 70%;
-        left: 0;
+  &-0 {
+  background-image: url("/img/tuning_bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+      &:before {
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      opacity: .85;
+      background-color: #000;
+  }
+  }
+  &-1 {
 
-        max-width: 335px;
+      > img {
+        top: 7%;
+        left: 5%;
+        max-width: 285px;
+      }
+  }
+
+  &-2 {
+
+    > img {
+      top: 23%;
+      right: 2%;
+      max-width: 271px;
     }
+  }
 
-    &-2 {
-        top: -5%;
-        right: 9%;
-
-        max-width: 335px;
+  &-3 {
+    > img {
+      right: 30%;
+      bottom: 60%;
+      max-width: 576px;
     }
+  }
 
-    &-3 {
-        right: 0;
-        bottom: 60%;
-
-        max-width: 576px;
+  &-4 {
+    > img {
+      bottom: 2%;
+      right: 6%;
+      max-width: 392px;
     }
+  }
 
-    &-4 {
-        top: 5%;
-        left: 15%;
-
-        max-width: 392px;
+  &-5 {
+    > img {
+    bottom: 7%;
+    left: 4%;
+    max-width: 544px;
     }
-
-    &-5 {
-          bottom: 21%;
-          left: 20%;
-
-        max-width: 544px;
-    }
+  }
 }

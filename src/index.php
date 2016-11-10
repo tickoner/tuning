@@ -50,22 +50,27 @@
     }
   </style>
 
-    <div id="wrapper">
-      <div id="absolute-img-container-1">
-          <img class="absolute-img" src="img/parts/blue-part-1.png" alt="">
-      </div>
-      <div id="absolute-img-container-2">
-          <img class="absolute-img" src="img/parts/blue-part-2.png" alt="">
-      </div>
-      <div id="absolute-img-container-3">
-          <img class="absolute-img" src="img/parts/blue-part-3.png" alt="">
-      </div>
-      <div id="absolute-img-container-4">
-          <img class="absolute-img" src="img/parts/blue-part-4.png" alt="">
-      </div>
-      <div id="absolute-img-container-5">
-          <img class="absolute-img" src="img/parts/blue-part-5.png" alt="">
-      </div>
+      <div id="wrapper">
+        <div id="parallax-scene">
+          <div data-depth="0.10" class="layer" id="absolute-img-container-0">
+            
+          </div>
+          <div data-depth="0.20" class="layer" id="absolute-img-container-1">
+            <img class="absolute-img" src="img/parts/blue-part-1.png" alt="">
+          </div>
+          <div data-depth="0.60"  class="layer" id="absolute-img-container-2">
+            <img class="absolute-img" src="img/parts/blue-part-2.png" alt="">
+          </div>
+          <div  data-depth="0.40"  class="layer" id="absolute-img-container-3">
+            <img class="absolute-img" src="img/parts/blue-part-3.png" alt="">
+          </div>
+          <div  data-depth="0.80"  class="layer" id="absolute-img-container-4">
+            <img class="absolute-img" src="img/parts/blue-part-4.png" alt="">
+          </div>
+          <div  data-depth="1.00"  class="layer" id="absolute-img-container-5">
+            <img class="absolute-img" src="img/parts/blue-part-5.png" alt="">
+          </div>
+        </div>
         <!-- header -->
         <div id="header">
             <a href="#">

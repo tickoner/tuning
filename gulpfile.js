@@ -107,7 +107,8 @@ gulp.task('vendor-js', function() {
     'src/vendor/jquery-validation/dist/additional-methods.js',
     'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.js',
     'src/vendor/rangeslider.js/dist/rangeslider.js',
-    'src/vendor/toastr/toastr.js'
+    'src/vendor/toastr/toastr.js',
+    'src/vendor/parallax/parallax.js'
   ])
   .pipe(addSrc.prepend('src/vendor/jquery/dist/jquery.js')) //Insert content to the beginning of scripts elements
   .pipe(uglify())
