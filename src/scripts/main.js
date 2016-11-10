@@ -45,44 +45,49 @@ $(document).ready(function() {
         pushFooter();
     });
     //parallax
-    $("#wrapper").mousemove(
-        function(e) {
+//    $("#wrapper").mousemove(
+//        function(e) {
+//
+//            var offset = $(this).offset();
+//            var xPos = e.pageX - offset.left;
+//            var yPos = e.pageY - offset.top;
+//
+//            var mouseXPercent = Math.round(xPos / $(this).width() * 100);
+//            var mouseYPercent = Math.round(yPos / $(this).height() * 100);
+//
+//            $(this).find('.absolute-img').each(
+//                function() {
+//                    var diffX = $('#wrapper').width() - $(this).width();
+//                    var diffY = $('#wrapper').height() - $(this).height();
+//
+//                    var myX = diffX * (mouseXPercent / 1000);
+//
+//                    var myY = diffY * (mouseYPercent / 800);
+//
+//
+//                    var cssObj = {
+//                        'left': myX + 'px',
+//                        'top': myY + 'px'
+//                    }
+//
+//                    $(this).animate({
+//                        left: myX,
+//                        top: myY
+//                    }, {
+//                        duration: 25,
+//                        queue: false,
+//                        easing: 'linear'
+//                    });
+//
+//                }
+//            );
+//
+//        });
 
-            var offset = $(this).offset();
-            var xPos = e.pageX - offset.left;
-            var yPos = e.pageY - offset.top;
+  //New parallax
+var scene = document.getElementById('parallax-scene');
+var parallax = new Parallax(scene);
 
-            var mouseXPercent = Math.round(xPos / $(this).width() * 100);
-            var mouseYPercent = Math.round(yPos / $(this).height() * 100);
-
-            $(this).find('.absolute-img').each(
-                function() {
-                    var diffX = $('#wrapper').width() - $(this).width();
-                    var diffY = $('#wrapper').height() - $(this).height();
-
-                    var myX = diffX * (mouseXPercent / 1000);
-
-                    var myY = diffY * (mouseYPercent / 800);
-
-
-                    var cssObj = {
-                        'left': myX + 'px',
-                        'top': myY + 'px'
-                    }
-
-                    $(this).animate({
-                        left: myX,
-                        top: myY
-                    }, {
-                        duration: 25,
-                        queue: false,
-                        easing: 'linear'
-                    });
-
-                }
-            );
-
-        });
     //toggle link searchPart
     $("#searchNumber").click(function() {
         event.preventDefault();
