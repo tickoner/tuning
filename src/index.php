@@ -37,9 +37,9 @@
     ?>
 
     <script type="text/javascript">
-      var IS_DESKTOP = <?php echo !$detect->isMobile()&&!$detect->isTablet() ? '1' : '0'; ?>,
-        IS_TABLET = <?php echo $detect->isTablet() ? '1' : '0'; ?>,
-        IS_MOBILE = <?php echo  $detect->isMobile() && !$detect->isTablet() ? '1' : '0'; ?>;
+      var IS_DESKTOP = <?=!$detect->isMobile()&&!$detect->isTablet() ? '1' : '0'; ?>,
+        IS_TABLET = <?=$detect->isTablet() ? '1' : '0'; ?>,
+        IS_MOBILE = <?=$detect->isMobile() && !$detect->isTablet() ? '1' : '0'; ?>;
     </script>
 </head>
 <body class="<?php echo $detect->isMobile() ? 'mobile-view' : 'desktop-view'; ?>">
@@ -53,7 +53,7 @@
       <div id="wrapper">
         <div id="parallax-scene">
           <div data-depth="0.10" class="layer" id="absolute-img-container-0">
-            
+
           </div>
           <div data-depth="0.20" class="layer" id="absolute-img-container-1">
             <img class="absolute-img" src="img/parts/blue-part-1.png" alt="">
@@ -97,7 +97,12 @@
         </div>
     </div>
     <div id="footer">
-        tuning.te.ua — Пошук та підбір найдешевших автозапчастин у Тернополі
+    <ul class="list-inline pull-right" style="">
+      <li><a href="https://www.facebook.com/tuningteua/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
+      <li><a href="https://vk.com/tuningteua/" target="_blank"><i class="fa fa-vk" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
+      </ul>
+        <span style="    margin-right: 110px;">tuning.te.ua — Пошук та підбір найдешевших автозапчастин у Тернополі<span>
+
     </div>
     <!-- Modal window -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

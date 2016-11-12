@@ -69,7 +69,8 @@ gulp.task('images', function() {
 gulp.task('fonts', function() {
   return gulp.src([
     'src/fonts/**/*.*',
-    'src/vendor/bootstrap/dist/fonts/*.*'
+    'src/vendor/bootstrap/dist/fonts/*.*',
+    'src/vendor/font-awesome/fonts/*.*'
   ])
   .pipe(gulp.dest('dist/fonts'));
 });
@@ -91,7 +92,8 @@ gulp.task('vendor-css', function() {
     'src/vendor/normalize-css/normalize.css',
     'src/vendor/jQuery-tagEditor-master/jQuery-tagEditor-master/jquery.tag-editor.css',
     'src/vendor/rangeslider.js/dist/rangeslider.css',
-    'src/vendor/toastr/toastr.css'
+    'src/vendor/toastr/toastr.css',
+    'src/vendor/font-awesome/css/font-awesome.css'
   ])
   .pipe(nano())
   .pipe(concat('vendor.min.css'))
