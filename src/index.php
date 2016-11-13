@@ -98,8 +98,8 @@
     </div>
     <div id="footer">
     <ul class="list-inline pull-right" style="">
-      <li><a href="https://www.facebook.com/tuningteua/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
-      <li><a href="https://vk.com/tuningteua/" target="_blank"><i class="fa fa-vk" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
+      <li><a href="https://www.facebook.com/tuningteua" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
+      <li><a href="https://vk.com/tuningteua" target="_blank"><i class="fa fa-vk" aria-hidden="true" style="color:#fff; font-size:2em;"></i></a></li>
       </ul>
         <span style="    margin-right: 110px;">tuning.te.ua — Пошук та підбір найдешевших автозапчастин у Тернополі<span>
 
